@@ -8,24 +8,34 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Class that defines how the data will be stored in the
- * Firebase databse. This is converted to a JSON format
+ * Defines the Contact information within
+ * the Firebase database.
+ * Updated from github.com/jmfranz/A4csci3130
+ * @author Brianna Phillips
+ * @since March 14, 2018
  */
 
 public class Contact implements Serializable {
 
-    public  String uid;
-    public  String name;
-    public  String email;
+    public String uid;
+    public String name;
+    public String businessNumber;
+    public String business;
+    public String address;
+    public String province;
 
     public Contact() {
         // Default constructor required for calls to DataSnapshot.getValue
     }
 
-    public Contact(String uid, String name, String email){
+    //Contact constructor
+    public Contact(String uid, String name, String number, String business, String address, String province){
         this.uid = uid;
         this.name = name;
-        this.email = email;
+        this.businessNumber = number;
+        this.business = business;
+        this.address = address;
+        this.province = province;
     }
 
     @Exclude
@@ -33,7 +43,10 @@ public class Contact implements Serializable {
         HashMap<String, Object> result = new HashMap<>();
         result.put("uid", uid);
         result.put("name", name);
-        result.put("email", email);
+        result.put("businessNumber", businessNumber);
+        result.put("business", business);
+        result.put("address", address);
+        result.put("province", province);
 
         return result;
     }

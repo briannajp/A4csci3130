@@ -5,10 +5,13 @@
     "contacts": {
             "$contact": {
                 "name": {
-                    ".validate": "newData.isString() && newData.val().length < 50"
+                    ".validate": "newData.isString() && newData.val().length < 49 && newData.val().length > 1"
                 },
-                "email": {
-                    ".validate": "newData.isString() && newData.val().matches(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}$/i)"
+                "businessNumber": {
+                    ".validate": "newData.isNumber() && newData.val().length == 9"
+                },
+                "province": {
+                    ".validate": "root.child('province/' + newData.val()).exists()"
                 }
             }
         }

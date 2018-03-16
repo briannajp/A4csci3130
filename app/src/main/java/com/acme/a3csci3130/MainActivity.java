@@ -11,8 +11,13 @@ import android.widget.TextView;
 import com.firebase.ui.database.FirebaseListAdapter;
 import com.google.firebase.database.FirebaseDatabase;
 
+/**
+ * Main Activity -- Contact List
+ * Updated from github.com/jmfranz/A4csci3130
+ * @author Brianna Phillips
+ * @since March 14, 2018
+ */
 public class MainActivity extends Activity {
-
 
     private ListView contactListView;
     private FirebaseListAdapter<Contact> firebaseAdapter;
@@ -46,22 +51,33 @@ public class MainActivity extends Activity {
             // onItemClick method is called everytime a user clicks an item on the list
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Contact person = (Contact) firebaseAdapter.getItem(position);
-                showDetailView(person);
+                Contact business = firebaseAdapter.getItem(position);
+                showDetailView(business);
             }
         });
     }
 
+    /**
+     * Starts the Create Contact activity.
+     * When activity finishes, will return here.
+     * @param v The view is passed as a parameter
+     */
     public void createContactButton(View v)
     {
-        Intent intent=new Intent(this, CreateContactAcitivity.class);
+        Intent intent = new Intent(this, CreateContactActivity.class);
         startActivity(intent);
     }
 
-    private void showDetailView(Contact person)
+    /**
+     * Starts the Detailed View activity.
+     * When activity finishes, will return here.
+     * @param business The business contact (clicked)
+     *                  is passed as a parameter.
+     */
+    private void showDetailView(Contact business)
     {
         Intent intent = new Intent(this, DetailViewActivity.class);
-        intent.putExtra("Contact", person);
+        intent.putExtra("Contact", business);
         startActivity(intent);
     }
 

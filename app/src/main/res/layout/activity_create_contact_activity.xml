@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.acme.a3csci3130.DetailViewActivity">
+    tools:context="com.acme.a3csci3130.CreateContactActivity">
 
     <EditText
         android:id="@+id/name"
@@ -23,31 +23,22 @@
         android:layout_width="360dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:hint="number"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/name" />
 
     <Button
-        android:id="@+id/updateButton"
+        android:id="@+id/submitButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="77dp"
-        android:onClick="updateContact"
-        android:text="Update Data"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/province" />
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="99dp"
 
-    <Button
-        android:id="@+id/deleteButton"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:layout_marginTop="77dp"
-        android:onClick="eraseContact"
-        android:text="Erase Contact"
+        android:onClick="submitInfoButton"
+        android:text="Create Contact"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/province" />
 
@@ -93,5 +84,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/address" />
 
+    <Button
+        android:id="@+id/cancelButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="26dp"
+        android:onClick="cancelButtonPressed"
+        android:text="Cancel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/submitButton" />
 
 </android.support.constraint.ConstraintLayout>
