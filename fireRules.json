@@ -3,17 +3,23 @@
     ".read": "true",
     ".write": "true",
     "contacts": {
-            "$contact": {
-                "name": {
-                    ".validate": "newData.isString() && newData.val().length < 49 && newData.val().length > 1"
-                },
-                "businessNumber": {
-                    ".validate": "newData.isNumber() && newData.val().length == 9"
-                },
-                "province": {
-                    ".validate": "root.child('province/' + newData.val()).exists()"
-                }
-            }
+      "$contact": {
+        "name": {
+          ".validate": "newData.isString() && newData.val().length < 49 && newData.val().length > 1"
+        },
+        "businessNumber": {
+          ".validate": "newData.isString() && newData.val().matches(/^[0-9]{9}$/)"
+        },
+        "business": {
+          ".validate": "root.child('primaryBusiness/' + newData.val()).exists()"
+        },
+        "address": {
+          ".validate": "newData.isString() && newData.val().length < 50"
+        },
+        "province": {
+          ".validate": "root.child('province/' + newData.val()).exists() || newData.val() == \"\""
         }
+      }
+    }
   }
 }
